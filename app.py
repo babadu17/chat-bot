@@ -1,10 +1,10 @@
 from flask import Flask, render_template, request, jsonify
 import openai
+import os
 
 app = Flask(__name__)
 
-# 🔑 Mets ta clé OpenAI ici
-openai.api_key = "TA_CLE_API_OPENAI"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 @app.route("/")
 def index():
